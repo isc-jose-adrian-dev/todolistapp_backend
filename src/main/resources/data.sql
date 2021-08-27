@@ -1,0 +1,13 @@
+INSERT INTO days_of_week (name) VALUES ('lunes')
+INSERT INTO days_of_week (name) VALUES ('martes')
+INSERT INTO days_of_week (name) VALUES ('miercoles')
+INSERT INTO days_of_week (name) VALUES ('jueves')
+INSERT INTO days_of_week (name) VALUES ('viernes')
+INSERT INTO days_of_week (name) VALUES ('sabado')
+INSERT INTO days_of_week (name) VALUES ('domingo')
+
+INSERT INTO importances_of_todo (name, level) VALUES ('bajo', 0)
+INSERT INTO importances_of_todo (name, level) VALUES ('bajo-medio', 1)
+INSERT INTO importances_of_todo (name, level) VALUES ('medio', 2)
+INSERT INTO importances_of_todo (name, level) VALUES ('medio-alto', 3)
+INSERT INTO importances_of_todo (name, level) VALUES ('alto', 4)
