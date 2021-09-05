@@ -7,7 +7,7 @@ import javax.persistence.TemporalType;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
-import com.jarov.web.restful.todolistapp.data.entities.DayEntity;
+import com.jarov.web.restful.todolistapp.data.entities.DayOfWeekEntity;
 import com.jarov.web.restful.todolistapp.data.entities.ImportanceEntity;
 import com.jarov.web.restful.todolistapp.data.entities.UserEntity;
 

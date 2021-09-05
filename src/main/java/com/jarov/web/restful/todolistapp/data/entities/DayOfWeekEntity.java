@@ -14,7 +14,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class DayEntity {
+public class DayOfWeekEntity {
 
 	@Id
 	@Column(unique = true)

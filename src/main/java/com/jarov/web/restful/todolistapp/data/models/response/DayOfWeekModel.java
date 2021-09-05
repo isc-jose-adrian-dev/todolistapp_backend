@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class DayModel {
+public class DayOfWeekModel {
 
 	private String name;
 }
