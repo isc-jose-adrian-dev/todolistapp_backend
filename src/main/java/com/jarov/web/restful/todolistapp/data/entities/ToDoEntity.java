@@ -4,6 +4,7 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -42,21 +43,21 @@ public class ToDoEntity {
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date createAt;
 	
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.LAZY, optional = false)
 	@JoinColumn(name = "day_of_week_name", referencedColumnName = "name")
 	private DayOfWeekEntity dayOfWeek;
 	
 	@Column(nullable = false)
 	private Integer noOrder;
 	
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.LAZY, optional = false)
 	@JoinColumn(name = "importance_of_todo_name", referencedColumnName = "name")
 	private ImportanceEntity importance;
 	
 	@Column(columnDefinition = "bit NOT NULL DEFAULT 1")
 	private boolean active;
 	
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.LAZY, optional = false)
 	@JoinColumn(name = "user_id", referencedColumnName = "id")
 	private UserEntity user;
 	
