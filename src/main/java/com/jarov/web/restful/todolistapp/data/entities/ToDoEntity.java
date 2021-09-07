@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
@@ -40,20 +42,23 @@ public class ToDoEntity {
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date createAt;
 	
-//	@Column(nullable = false)
-//	private DayEntity dayOfWeek;
+	@ManyToOne
+	@JoinColumn(name = "day_of_week_name", referencedColumnName = "name")
+	private DayOfWeekEntity dayOfWeek;
 	
 	@Column(nullable = false)
 	private Integer noOrder;
 	
-//	@Column(nullable = false)
-//	private ImportanceEntity importance;
+	@ManyToOne
+	@JoinColumn(name = "importance_of_todo_name", referencedColumnName = "name")
+	private ImportanceEntity importance;
 	
 	@Column(columnDefinition = "bit NOT NULL DEFAULT 1")
 	private boolean active;
 	
-//	@Column(nullable = false)
-//	private UserEntity user;
+	@ManyToOne
+	@JoinColumn(name = "user_id", referencedColumnName = "id")
+	private UserEntity user;
 	
 	@Column(columnDefinition = "bit NOT NULL DEFAULT 0")
 	private boolean alarmActive;
