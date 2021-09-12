@@ -9,8 +9,8 @@ import com.jarov.web.restful.todolistapp.data.models.response.DayOfWeekModel;
 @Mapper(componentModel = "day_mapper")
 public interface DayOfWeekMapper {
 	@Mapping(target = "name", source = "name")
-    DayOfWeekEntity toEntity(DayOfWeekModel dayModel);
+    DayOfWeekEntity toEntity(DayOfWeekModel model);
 	
 	@Mapping(target = "name", source = "name")
-    DayOfWeekModel toModel(DayOfWeekEntity dayModel);
+    DayOfWeekModel toModel(DayOfWeekEntity entity);
 }

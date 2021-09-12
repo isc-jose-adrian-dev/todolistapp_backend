@@ -19,8 +19,9 @@ import lombok.NoArgsConstructor;
 public class ImportanceEntity {
 	
 	@Id
-	@Column(unique = true)
+	@Column(nullable = false, unique = true)
 	private String name;
 	
+	@Column(nullable = false, unique = true)
 	private byte level;
 }

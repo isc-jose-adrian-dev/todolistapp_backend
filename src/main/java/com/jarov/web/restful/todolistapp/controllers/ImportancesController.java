@@ -9,19 +9,19 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.jarov.web.restful.todolistapp.data.models.response.DayOfWeekModel;
-import com.jarov.web.restful.todolistapp.services.DaysOfWeekService;
+import com.jarov.web.restful.todolistapp.data.models.response.ImportanceModel;
+import com.jarov.web.restful.todolistapp.services.ImportancesService;
 
 @RestController
-@RequestMapping("/v1/days_of_week")
-public class DaysOfWeekController {
+@RequestMapping("/v1/importances")
+public class ImportancesController {
 
 	@Autowired
-	private DaysOfWeekService service;
+	private ImportancesService service;
 	
 	@GetMapping
-	public ResponseEntity<List<DayOfWeekModel>> getDays(){
-		List<DayOfWeekModel> allElements = this.service.getAll();
-		return new ResponseEntity<List<DayOfWeekModel>>(allElements, HttpStatus.OK);
+	public ResponseEntity<List<ImportanceModel>> getImportances(){
+		List<ImportanceModel> allElements = this.service.getAll();
+		return new ResponseEntity<List<ImportanceModel>>(allElements, HttpStatus.OK);
 	}
 }

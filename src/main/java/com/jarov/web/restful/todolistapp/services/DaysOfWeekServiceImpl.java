@@ -16,7 +16,7 @@ public class DaysOfWeekServiceImpl implements DaysOfWeekService{
 	@Autowired
 	private DaysOfWeekRepository repository;
 	
-	public List<DayOfWeekModel> getDaysOfWeek(){
+	public List<DayOfWeekModel> getAll(){
 		DayOfWeekMapperImpl mapper = new DayOfWeekMapperImpl(); 
 		return this.repository.findAll().stream().map(entity -> mapper.toModel(entity)).collect(Collectors.toList());
 	}

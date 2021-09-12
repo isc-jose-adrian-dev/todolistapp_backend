@@ -5,5 +5,5 @@ import com.jarov.web.restful.todolistapp.data.models.response.DayOfWeekModel;
 
 public interface DaysOfWeekService {
 	
-	public List<DayOfWeekModel> getDaysOfWeek();
+	public List<DayOfWeekModel> getAll();
 }

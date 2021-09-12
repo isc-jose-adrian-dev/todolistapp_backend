@@ -10,4 +10,6 @@ import lombok.NoArgsConstructor;
 public class ImportanceModel {
 
 	private String name;
+	
+	private byte level;
 }
