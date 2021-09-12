@@ -4,15 +4,20 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.persistence.Transient;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -21,6 +26,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
 public class ToDoEntity {
 
 	@Id
@@ -28,7 +34,8 @@ public class ToDoEntity {
 	@SequenceGenerator(
 			name = "todos_sequence",
 			sequenceName = "todos_sequence",
-			initialValue = 1
+			initialValue = 1,
+			allocationSize = 1
 			)
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "todos_sequence")
 	private Long id;
@@ -40,22 +47,26 @@ public class ToDoEntity {
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date createAt;
 	
-//	@Column(nullable = false)
-//	private DayEntity dayOfWeek;
+	@Transient
+	//@Column(nullable = false)
+	private DayOfWeekEntity dayOfWeek;
 	
 	@Column(nullable = false)
 	private Integer noOrder;
 	
-//	@Column(nullable = false)
-//	private ImportanceEntity importance;
+	@Transient
+	//@Column(nullable = false)
+	private ImportanceEntity importance;
 	
-	@Column(columnDefinition = "bit NOT NULL DEFAULT 1")
+	@Column(columnDefinition = "boolean NOT NULL DEFAULT TRUE")
 	private boolean active;
 	
-//	@Column(nullable = false)
-//	private UserEntity user;
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(table = "users", referencedColumnName = "id")
+	@Column(nullable = false)
+	private UserEntity user;
 	
-	@Column(columnDefinition = "bit NOT NULL DEFAULT 0")
+	@Column(columnDefinition = "boolean NOT NULL DEFAULT FALSE")
 	private boolean alarmActive;
 	
 	@Temporal(TemporalType.TIMESTAMP)
