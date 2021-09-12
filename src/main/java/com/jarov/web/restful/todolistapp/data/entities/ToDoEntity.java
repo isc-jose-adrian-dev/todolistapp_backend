@@ -47,23 +47,22 @@ public class ToDoEntity {
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date createAt;
 	
-	@Transient
-	//@Column(nullable = false)
+	@ManyToOne(fetch = FetchType.LAZY, optional = false)
+	@JoinColumn(name = "day_of_week_name", referencedColumnName = "name")
 	private DayOfWeekEntity dayOfWeek;
 	
 	@Column(nullable = false)
 	private Integer noOrder;
 	
-	@Transient
-	//@Column(nullable = false)
+	@ManyToOne(fetch = FetchType.LAZY, optional = false)
+	@JoinColumn(name = "importance_of_todo_name", referencedColumnName = "name")
 	private ImportanceEntity importance;
 	
 	@Column(columnDefinition = "boolean NOT NULL DEFAULT TRUE")
 	private boolean active;
 	
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(table = "users", referencedColumnName = "id")
-	@Column(nullable = false)
+	@ManyToOne(fetch = FetchType.LAZY, optional = false)
+	@JoinColumn(name = "user_id", referencedColumnName = "id")
 	private UserEntity user;
 	
 	@Column(columnDefinition = "boolean NOT NULL DEFAULT FALSE")
